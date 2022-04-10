@@ -1,0 +1,101 @@
+# https://colab.research.google.com/drive/1XC5XZDHibPtrf7Yxbzz45Z4pqFqwHVaE?usp=sharing
+# Problem 1
+# paste your Python code from Google Colab over the following print statement
+scores = []
+# Get 5 test scores
+for i in range (5):
+  score = float(input("Enter a test score: "))
+  scores.append(score)
+print("All scores:", scores)
+scoreCompare = []
+# Copy the 5 test scores to a new list
+for score in scores:
+  scoreCompare.append(score)
+# If score is below 60, add 10 extra points
+for i in range(len(scoreCompare)):
+  if scoreCompare[i] < 60:
+    scoreCompare[i] = scoreCompare[i] + 10
+print("Students who scored below 60 get 10 extra points.")
+print("All scores:", scoreCompare)
+# Compare old and new score. Display the two scores.
+print("Students whose scores have changed:")
+for i in range(len(scores)):
+  if scores[i] != scoreCompare[i]:
+    print("Old score:", scores[i], "New score:", scoreCompare[i])
+
+
+# Problem 2
+# paste your Python code from Google Colab over the following print statement
+q = "y"
+numbers = []
+# Get as many numbers from 1 to 10 and add to list
+while q == "y":
+  numbers.append(int(input("Enter an integer from 1 to 10: ")))
+  q = input("Enter another integer?[y/n]")
+# Display list, max, min, sum, and length
+print("Number list:", numbers)
+print("Largest element:", max(numbers))
+print("Smallest element:", min(numbers))
+print("Sum of all elements:", sum(numbers))
+print("Length of list:", len(numbers))
+# Display average
+print("Average:", sum(numbers) / len(numbers))
+# Reverse the list
+numbers.reverse()
+print("List reverse:", numbers)
+# Move the last element to the front
+lastNumber = numbers[-1]
+numbers.insert(0, lastNumber)
+del numbers[-1]
+print("Last element moved to front:", numbers)
+
+
+# Problem 3
+# paste your Python code from Google Colab over the following print statement
+# Display the integers 5, 9, 13, 17, 21
+print("First Sequence:")
+for i in range(5, 22, 4):
+  print(i)
+# Display th eintegers 26, 19, 12, 5
+print("Second Sequence:")
+for i in range(26, 4, -7):
+  print(i)
+
+
+# Problem 4
+# paste your Python code from Google Colab over the following print statement
+import string
+# Create dictionary and upper case letter comparative list
+letterCount = {}
+upperCaseLetters = []
+sortedLetterCount = []
+# Add all upppercase letters to list to compare to myString
+for l in str(string.ascii_uppercase):
+  upperCaseLetters.append(l)
+# Get a string
+myString = input("Enter a string:")
+# Convert string to uppercase
+myStringUpper = myString.upper()
+for c in myStringUpper:
+  # Ensure to count only letters instead of spaces or characters
+  if c in upperCaseLetters:
+    # Add a count of the letter to the dictionary
+    if c in letterCount:
+      letterCount[c] = letterCount[c] + 1
+    else:
+      letterCount[c] = 1
+print("Dictionary:", letterCount)
+# Get a letter and check its frequency
+letter = input("Choose a letter: ")
+letterUpper = letter.upper()
+if letterUpper not in letterCount:
+  print("Letter not in dictionary")
+else:
+  print("Frequency count of that letter:", letterCount[letterUpper])
+  del letterCount[letterUpper]
+  print("Dictionary after that letter removed:", letterCount)
+# Add letters to the sortedLetterCount list and sort
+for element in letterCount:
+  sortedLetterCount.append(element)
+sortedLetterCount.sort()
+print("Letters sorted:", sortedLetterCount)
